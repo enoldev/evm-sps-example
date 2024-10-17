@@ -1,0 +1,551 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package contract.v1;
+message Events {
+    repeated Usdc_AdminChanged usdc_admin_changeds = 1;
+    repeated Usdc_Approval usdc_approvals = 2;
+    repeated Usdc_AuthorizationCanceled usdc_authorization_canceleds = 3;
+    repeated Usdc_AuthorizationUsed usdc_authorization_useds = 4;
+    repeated Usdc_Blacklisted usdc_blacklisteds = 5;
+    repeated Usdc_BlacklisterChanged usdc_blacklister_changeds = 6;
+    repeated Usdc_Burn usdc_burns = 7;
+    repeated Usdc_MasterMinterChanged usdc_master_minter_changeds = 8;
+    repeated Usdc_Mint usdc_mints = 9;
+    repeated Usdc_MinterConfigured usdc_minter_configureds = 10;
+    repeated Usdc_MinterRemoved usdc_minter_removeds = 11;
+    repeated Usdc_OwnershipTransferred usdc_ownership_transferreds = 12;
+    repeated Usdc_Pause usdc_pauses = 13;
+    repeated Usdc_PauserChanged usdc_pauser_changeds = 14;
+    repeated Usdc_RescuerChanged usdc_rescuer_changeds = 15;
+    repeated Usdc_Transfer usdc_transfers = 16;
+    repeated Usdc_UnBlacklisted usdc_un_blacklisteds = 17;
+    repeated Usdc_Unpause usdc_unpauses = 18;
+    repeated Usdc_Upgraded usdc_upgradeds = 19;
+}
+message Calls {
+    repeated Usdc_ApproveCall usdc_call_approves = 1;
+    repeated Usdc_BlacklistCall usdc_call_blacklists = 2;
+    repeated Usdc_BurnCall usdc_call_burns = 3;
+    repeated Usdc_CancelAuthorization1call usdc_call_cancel_authorization_1s = 4;
+    repeated Usdc_CancelAuthorization2call usdc_call_cancel_authorization_2s = 5;
+    repeated Usdc_ChangeAdminCall usdc_call_change_admins = 6;
+    repeated Usdc_ConfigureMinterCall usdc_call_configure_minters = 7;
+    repeated Usdc_DecreaseAllowanceCall usdc_call_decrease_allowances = 8;
+    repeated Usdc_IncreaseAllowanceCall usdc_call_increase_allowances = 9;
+    repeated Usdc_InitializeCall usdc_call_initializes = 10;
+    repeated Usdc_InitializeV2call usdc_call_initialize_v_2s = 11;
+    repeated Usdc_InitializeV21call usdc_call_initialize_v2_1s = 12;
+    repeated Usdc_InitializeV22call usdc_call_initialize_v2_2s = 13;
+    repeated Usdc_MintCall usdc_call_mints = 14;
+    repeated Usdc_PauseCall usdc_call_pauses = 15;
+    repeated Usdc_Permit1call usdc_call_permit_1s = 16;
+    repeated Usdc_Permit2call usdc_call_permit_2s = 17;
+    repeated Usdc_ReceiveWithAuthorization1call usdc_call_receive_with_authorization_1s = 18;
+    repeated Usdc_ReceiveWithAuthorization2call usdc_call_receive_with_authorization_2s = 19;
+    repeated Usdc_RemoveMinterCall usdc_call_remove_minters = 20;
+    repeated Usdc_RescueErc20call usdc_call_rescue_erc_20s = 21;
+    repeated Usdc_TransferCall usdc_call_transfers = 22;
+    repeated Usdc_TransferFromCall usdc_call_transfer_froms = 23;
+    repeated Usdc_TransferOwnershipCall usdc_call_transfer_ownerships = 24;
+    repeated Usdc_TransferWithAuthorization1call usdc_call_transfer_with_authorization_1s = 25;
+    repeated Usdc_TransferWithAuthorization2call usdc_call_transfer_with_authorization_2s = 26;
+    repeated Usdc_UnBlacklistCall usdc_call_un_blacklists = 27;
+    repeated Usdc_UnpauseCall usdc_call_unpauses = 28;
+    repeated Usdc_UpdateBlacklisterCall usdc_call_update_blacklisters = 29;
+    repeated Usdc_UpdateMasterMinterCall usdc_call_update_master_minters = 30;
+    repeated Usdc_UpdatePauserCall usdc_call_update_pausers = 31;
+    repeated Usdc_UpdateRescuerCall usdc_call_update_rescuers = 32;
+    repeated Usdc_UpgradeToCall usdc_call_upgrade_tos = 33;
+    repeated Usdc_UpgradeToAndCallCall usdc_call_upgrade_to_and_calls = 34;
+}
+message EventsCalls {
+    Events events = 1;
+    Calls calls = 2;
+}
+message Usdc_AdminChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_admin = 5;
+    bytes new_admin = 6;
+}
+message Usdc_Approval {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes spender = 6;
+    string value = 7;
+}
+message Usdc_AuthorizationCanceled {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes authorizer = 5;
+    bytes nonce = 6;
+}
+message Usdc_AuthorizationUsed {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes authorizer = 5;
+    bytes nonce = 6;
+}
+message Usdc_Blacklisted {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes u_account = 5;
+}
+message Usdc_BlacklisterChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes new_blacklister = 5;
+}
+message Usdc_Burn {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes burner = 5;
+    string amount = 6;
+}
+message Usdc_MasterMinterChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes new_master_minter = 5;
+}
+message Usdc_Mint {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes minter = 5;
+    bytes to = 6;
+    string amount = 7;
+}
+message Usdc_MinterConfigured {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes minter = 5;
+    string minter_allowed_amount = 6;
+}
+message Usdc_MinterRemoved {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes old_minter = 5;
+}
+message Usdc_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+message Usdc_Pause {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+}
+message Usdc_PauserChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes new_address = 5;
+}
+message Usdc_RescuerChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes new_rescuer = 5;
+}
+message Usdc_Transfer {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes from = 5;
+    bytes to = 6;
+    string value = 7;
+}
+message Usdc_UnBlacklisted {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes u_account = 5;
+}
+message Usdc_Unpause {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+}
+message Usdc_Upgraded {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes implementation = 5;
+}
+  
+message Usdc_ApproveCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes spender = 6;
+    string value = 7;
+    bool output_param0 = 8;
+}
+message Usdc_BlacklistCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_account = 6;
+}
+message Usdc_BurnCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    string u_amount = 6;
+}
+message Usdc_CancelAuthorization1call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes authorizer = 6;
+    bytes nonce = 7;
+    uint64 v = 8;
+    bytes r = 9;
+    bytes s = 10;
+}
+message Usdc_CancelAuthorization2call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes authorizer = 6;
+    bytes nonce = 7;
+    bytes signature = 8;
+}
+message Usdc_ChangeAdminCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes new_admin = 6;
+}
+message Usdc_ConfigureMinterCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes minter = 6;
+    string minter_allowed_amount = 7;
+    bool output_param0 = 8;
+}
+message Usdc_DecreaseAllowanceCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes spender = 6;
+    string decrement = 7;
+    bool output_param0 = 8;
+}
+message Usdc_IncreaseAllowanceCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes spender = 6;
+    string increment = 7;
+    bool output_param0 = 8;
+}
+message Usdc_InitializeCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    string token_name = 6;
+    string token_symbol = 7;
+    string token_currency = 8;
+    uint64 token_decimals = 9;
+    bytes new_master_minter = 10;
+    bytes new_pauser = 11;
+    bytes new_blacklister = 12;
+    bytes new_owner = 13;
+}
+message Usdc_InitializeV2call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    string new_name = 6;
+}
+message Usdc_InitializeV21call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes lost_and_found = 6;
+}
+message Usdc_InitializeV22call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    repeated bytes accounts_to_blacklist = 6;
+    string new_symbol = 7;
+}
+message Usdc_MintCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_to = 6;
+    string u_amount = 7;
+    bool output_param0 = 8;
+}
+message Usdc_PauseCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+}
+message Usdc_Permit1call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes owner = 6;
+    bytes spender = 7;
+    string value = 8;
+    string deadline = 9;
+    bytes signature = 10;
+}
+message Usdc_Permit2call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes owner = 6;
+    bytes spender = 7;
+    string value = 8;
+    string deadline = 9;
+    uint64 v = 10;
+    bytes r = 11;
+    bytes s = 12;
+}
+message Usdc_ReceiveWithAuthorization1call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string value = 8;
+    string valid_after = 9;
+    string valid_before = 10;
+    bytes nonce = 11;
+    bytes signature = 12;
+}
+message Usdc_ReceiveWithAuthorization2call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string value = 8;
+    string valid_after = 9;
+    string valid_before = 10;
+    bytes nonce = 11;
+    uint64 v = 12;
+    bytes r = 13;
+    bytes s = 14;
+}
+message Usdc_RemoveMinterCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes minter = 6;
+    bool output_param0 = 7;
+}
+message Usdc_RescueErc20call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes token_contract = 6;
+    bytes to = 7;
+    string amount = 8;
+}
+message Usdc_TransferCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes to = 6;
+    string value = 7;
+    bool output_param0 = 8;
+}
+message Usdc_TransferFromCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string value = 8;
+    bool output_param0 = 9;
+}
+message Usdc_TransferOwnershipCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes new_owner = 6;
+}
+message Usdc_TransferWithAuthorization1call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string value = 8;
+    string valid_after = 9;
+    string valid_before = 10;
+    bytes nonce = 11;
+    bytes signature = 12;
+}
+message Usdc_TransferWithAuthorization2call {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string value = 8;
+    string valid_after = 9;
+    string valid_before = 10;
+    bytes nonce = 11;
+    uint64 v = 12;
+    bytes r = 13;
+    bytes s = 14;
+}
+message Usdc_UnBlacklistCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_account = 6;
+}
+message Usdc_UnpauseCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+}
+message Usdc_UpdateBlacklisterCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_new_blacklister = 6;
+}
+message Usdc_UpdateMasterMinterCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_new_master_minter = 6;
+}
+message Usdc_UpdatePauserCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes u_new_pauser = 6;
+}
+message Usdc_UpdateRescuerCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes new_rescuer = 6;
+}
+message Usdc_UpgradeToCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes new_implementation = 6;
+}
+message Usdc_UpgradeToAndCallCall {
+    string call_tx_hash = 1;
+    google.protobuf.Timestamp call_block_time = 2;
+    uint64 call_block_number = 3;
+    uint64 call_ordinal = 4;
+    bool call_success = 5;
+    bytes new_implementation = 6;
+    bytes data = 7;
+}

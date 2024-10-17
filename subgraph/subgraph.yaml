@@ -1,0 +1,19 @@
+specVersion: 1.0.0
+description: my-project Substreams-powered-Subgraph
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: substreams
+    name: my_project
+    network: mainnet
+    source:
+      package:
+        moduleName: map_events_calls
+        file: ../my-project-v0.1.0.spkg
+    mapping:
+      apiVersion: 0.0.7
+      kind: substreams/graph-entities
+      file: ./src/mappings.ts
+      handler: handleTriggers

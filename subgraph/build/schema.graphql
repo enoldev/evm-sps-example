@@ -1,0 +1,16 @@
+type TransferEvent @entity {
+    id: ID!
+    timestamp: Int!
+    blockNumber: Int!
+    from: String!
+    to: String!
+    value: String!
+}
+
+type ApproveCall @entity {
+    id: ID!
+    timestamp: Int!
+    blockNumber: Int!
+    spender: String!
+    value: String!
+}
